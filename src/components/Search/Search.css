@@ -1,0 +1,11 @@
+.search-select-menu-item {
+  text-transform: capitalize;
+}
+
+.search-select {
+  text-transform: capitalize;
+}
+
+.search-select .search-select-icon {
+  color: #FF4F4F;
+}

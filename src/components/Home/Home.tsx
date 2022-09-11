@@ -4,7 +4,7 @@ import Search from '../Search'
 function Home() {
   return (
     <div className="home">
-      <h1 className="heading">twitter <span className="heading-sentiment">sentiment</span></h1>
+      <h1 className="heading">Twitter <span className="heading-sentiment">Sentiment</span></h1>
       <Search />
     </div>
   );

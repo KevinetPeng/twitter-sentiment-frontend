@@ -46,7 +46,7 @@ export const twitterSentimentSlice = createSlice({
     setError: (state, action: PayloadAction<any>) => {
       state.isLoading = action.payload;
     },
-  },   
+  },
 });
 
 export const { setData, setIsLoading, setError } =
@@ -55,7 +55,7 @@ export const { setData, setIsLoading, setError } =
 // Other code such as selectors can use the imported `RootState` type
 export const selectData = (state: RootState) => state.twitterSentiment.data;
 export const selectError = (state: RootState) => state.twitterSentiment.error;
-export const selectIsLoading = (state: RootState) => state.twitterSentiment.isLoading;
-
+export const selectIsLoading = (state: RootState) =>
+  state.twitterSentiment.isLoading;
 
 export default twitterSentimentSlice.reducer;
