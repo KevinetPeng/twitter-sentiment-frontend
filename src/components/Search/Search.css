@@ -7,5 +7,9 @@
 }
 
 .search-select .search-select-icon {
-  color: #FF4F4F;
+  color: #ff4f4f;
+}
+
+.search-icon:hover {
+  cursor: pointer;
 }

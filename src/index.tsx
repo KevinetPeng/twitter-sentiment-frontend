@@ -1,8 +1,10 @@
 import React from "react";
+import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import Home from "./components/Home";
 import reportWebVitals from "./reportWebVitals";
+import { store } from "./redux/store";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -22,9 +24,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <Home />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Home />
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>
 );
 

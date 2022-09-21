@@ -7,9 +7,21 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { selectOptions } from "../../constants";
 import { useState } from "react";
+import { useSearch } from "../../redux/hooks/search";
 
 const Search = () => {
   const [searchType, setSearchType] = useState(Object.keys(selectOptions)[0]);
+  const [search, setSearch] = useState("");
+
+  const { sendSearch } = useSearch();
+
+  const handleSearch = () => {
+    search && sendSearch(search, searchType as keyof typeof selectOptions);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
 
   return (
     <TextField
@@ -18,10 +30,12 @@ const Search = () => {
       }
       variant="outlined"
       color="secondary"
+      onChange={handleChange}
+      value={search}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <SearchIcon />
+            <SearchIcon onClick={handleSearch} className="search-icon"/>
           </InputAdornment>
         ),
         startAdornment: (
@@ -35,12 +49,16 @@ const Search = () => {
                 className="search-select"
                 inputProps={{
                   classes: {
-                      icon: "search-select-icon",
+                    icon: "search-select-icon",
                   },
-              }}
+                }}
               >
-                {Object.entries(selectOptions).map(([key]) => (
-                  <MenuItem value={key} className="search-select-menu-item">
+                {Object.entries(selectOptions).map(([key], i) => (
+                  <MenuItem
+                    value={key}
+                    className="search-select-menu-item"
+                    key={i}
+                  >
                     {key}
                   </MenuItem>
                 ))}
