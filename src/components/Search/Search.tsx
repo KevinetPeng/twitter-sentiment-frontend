@@ -23,6 +23,12 @@ const Search = () => {
     setSearch(event.target.value);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <TextField
       placeholder={
@@ -31,15 +37,16 @@ const Search = () => {
       variant="outlined"
       color="secondary"
       onChange={handleChange}
+      onKeyDown={handleKeyDown}
       value={search}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <SearchIcon onClick={handleSearch} className="search-icon"/>
+            <SearchIcon onClick={handleSearch} className="search-icon" />
           </InputAdornment>
         ),
         startAdornment: (
-          <InputAdornment position="start">
+          <div className="search-select-container">
             <FormControl variant="standard" fullWidth>
               <Select
                 disableUnderline
@@ -64,7 +71,8 @@ const Search = () => {
                 ))}
               </Select>
             </FormControl>
-          </InputAdornment>
+            <div className="seperator-div"/>
+          </div>
         ),
       }}
     />

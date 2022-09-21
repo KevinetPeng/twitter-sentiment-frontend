@@ -1,15 +1,32 @@
-.search-select-menu-item {
-  text-transform: capitalize;
+.search-select-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
 }
 
-.search-select {
-  text-transform: capitalize;
+.search-select-menu-item {
+  text-transform: uppercase;
+}
+
+.search-select-container .search-select {
+  text-transform: uppercase;
+  color: rgb(99, 99, 99);
 }
 
 .search-select .search-select-icon {
   color: #ff4f4f;
 }
 
+.search-icon {
+  color: #ff4f4f;
+}
+
 .search-icon:hover {
   cursor: pointer;
+}
+
+.seperator-div {
+  border-left: 2px solid rgb(185, 185, 185);
+  margin-left: 12px;
+  margin-right: 12px;
 }
